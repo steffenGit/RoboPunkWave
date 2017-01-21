@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1348567886, guid: 26bc727e09ccf4c4999cf154aabf890f, type: 3}
+  m_Name: NotS
+  m_EditorClassIdentifier: 
+  remindLeter: 0
+  notShowAgain: 0
+  rated: 0
+  counter: 1
