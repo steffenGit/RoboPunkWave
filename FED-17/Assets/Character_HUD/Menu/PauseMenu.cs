@@ -22,13 +22,13 @@ public class PauseMenu : MonoBehaviour {
         }
 	}
 
-   private void onStartMenu()
+   private void startMenu()
     {
         menu.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
 
-    public void onExitMenu()
+    public void exitMenu()
     {
         menu.gameObject.SetActive(false);
         Time.timeScale = 1;
