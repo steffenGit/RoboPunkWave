@@ -13,11 +13,11 @@ public class PauseMenu : MonoBehaviour {
         {
             if(menu.gameObject.activeInHierarchy == false)
             {
-                onStartMenu();
+                startMenu();
             }
             else
             {
-                onExitMenu();
+                exitMenu();
             }
         }
 	}
