@@ -13,16 +13,24 @@ public class PauseMenu : MonoBehaviour {
         {
             if(menu.gameObject.activeInHierarchy == false)
             {
-                menu.gameObject.SetActive(true);
-                Time.timeScale = 0;
+                onStartMenu();
             }
             else
             {
-                menu.gameObject.SetActive(false);
-                Time.timeScale = 1;
+                onExitMenu();
             }
         }
 	}
 
-   
+   private void onStartMenu()
+    {
+        menu.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void onExitMenu()
+    {
+        menu.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
 }
