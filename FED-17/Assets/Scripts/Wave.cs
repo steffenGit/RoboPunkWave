@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
+    public const float DISTANCE_FACTOR_START = 1.0f;
+    public const float SPEED_FACTOR_START = 30.0f;
+    public const float SCALE_FACTOR_START = 0.1f;
+
+    public const float DECREASE_SPEED = 0.5f;
+    public const float DECREASE_SCALE = 0.5f;
+    public const float DECREASE_DISTANCE_FACTOR = 1.0f;
+
     List<Collision> objectsOnCollider;
 
     Vector3[] originalVertices;
@@ -52,9 +60,9 @@ public class Wave : MonoBehaviour {
             //if(playerController.hasJumped)
             {
                 waveOrigin = playerTransform.position;
-                scale = 0.05f;
-                speed = 15.0f;
-                distanceFactor = 1.0f;
+                scale = SCALE_FACTOR_START;
+                speed = SPEED_FACTOR_START;
+                distanceFactor = DISTANCE_FACTOR_START;
                 timestampLastJump = Time.time;
             //    playerController.hasJumped = false;
             }
@@ -105,18 +113,18 @@ public class Wave : MonoBehaviour {
     {
         // decrease wave speed over time
         if (speed > 0.0f)
-            speed -= 0.01f;
+            speed -= DECREASE_SPEED * Time.deltaTime;
         // decrease scale over time
         if (scale > 0.0f)
-            scale -= 0.01f;
+            scale -= DECREASE_SCALE * Time.deltaTime;
         // decrease distanceFactor over time
         if (distanceFactor > 0.0f)
-            distanceFactor -= 0.2f;
+           distanceFactor -= DECREASE_DISTANCE_FACTOR * Time.deltaTime;
     }
 
     private void UpdateMash()
     {
         mesh.RecalculateNormals();
-        GetComponent<MeshCollider>().sharedMesh = mesh;
+        //GetComponent<MeshCollider>().sharedMesh = mesh;
     }
 }
