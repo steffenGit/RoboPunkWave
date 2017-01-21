@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour {
+public class HealthBar : MonoBehaviour
+{
 
     [SerializeField]
     private Image content;
@@ -24,20 +25,21 @@ public class HealthBar : MonoBehaviour {
     }
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        handleBar();
-	}
-
-    private void handleBar()
+    // Use this for initialization
+    void Start()
     {
-        content.fillAmount = 
-            (float)this.character.getCurrentLifepoints() 
+
+    }
+
+    // Update is called once per frame
+    //	void Update () {
+    //        handleBar();
+    //	}
+
+    public void handleBar()
+    {
+        content.fillAmount =
+            (float)this.character.getCurrentLifepoints()
             / (float)this.character.getMaximumLifepoints();
 
         this.lifepoints.text = character.getCurrentLifepoints().ToString();
