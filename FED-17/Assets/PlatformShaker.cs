@@ -30,7 +30,6 @@ public class PlatformShaker : MonoBehaviour
         {
             Vector3 currPos = tf.position;
             float t = Mathf.PingPong(Time.time * switchDirectionAfterTime, range) / range;
-            Debug.Log(t);
             transform.Translate(new Vector3(0, (0.5f - t) * speed, 0));
             speed -= 0.01f;
         }
