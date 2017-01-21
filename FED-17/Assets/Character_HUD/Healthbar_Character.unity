@@ -929,7 +929,6 @@ GameObject:
   - component: {fileID: 2069691256}
   - component: {fileID: 2069691260}
   - component: {fileID: 2069691259}
-  - component: {fileID: 2069691258}
   - component: {fileID: 2069691257}
   m_Layer: 5
   m_Name: pnl01
@@ -972,20 +971,6 @@ MonoBehaviour:
   content: {fileID: 454455826}
   name: {fileID: 220840194}
   lifepoints: {fileID: 655739537}
---- !u!114 &2069691258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2069691255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c1b6a1baecb7cd44a8270ac803f42af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  content: {fileID: 0}
-  name: {fileID: 1368532065}
-  lifepoints: {fileID: 0}
 --- !u!114 &2069691259
 MonoBehaviour:
   m_ObjectHideFlags: 0
