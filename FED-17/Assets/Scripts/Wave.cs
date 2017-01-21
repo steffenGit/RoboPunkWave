@@ -17,8 +17,6 @@ public class Wave : MonoBehaviour {
     float noiseStrength = 1f;
     float noiseWalk = 1f;
 
-    int calledCounter = 0;
-
     private Mesh mesh;
     private Vector3[] baseHeight;
     
@@ -54,7 +52,7 @@ public class Wave : MonoBehaviour {
             //if(playerController.hasJumped)
             {
                 waveOrigin = playerTransform.position;
-                scale = 0.1f;
+                scale = 0.05f;
                 speed = 15.0f;
                 distanceFactor = 1.0f;
                 timestampLastJump = Time.time;
@@ -119,6 +117,6 @@ public class Wave : MonoBehaviour {
     private void UpdateMash()
     {
         mesh.RecalculateNormals();
-        //GetComponent<MeshCollider>().sharedMesh = mesh;
+        GetComponent<MeshCollider>().sharedMesh = mesh;
     }
 }
