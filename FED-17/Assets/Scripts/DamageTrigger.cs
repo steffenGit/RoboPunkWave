@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageTrigger : MonoBehaviour
 {
 	public int ownPlayerId;
-	public enum eDamageTrigger { Punch, Kick, UpperCut, CircleKick, LowerKick };
+	public enum eDamageTrigger { WavePunch, Shockwave, Kick, Punch };
 
 	public eDamageTrigger triggerType;
 	PlayControllerScript controller_;

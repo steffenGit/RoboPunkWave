@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : ICharacter
+/*public class Character : ICharacter
 {
     protected int maximumLifepoints;
     protected int currentLifepoints;
@@ -10,15 +10,16 @@ public class Character : ICharacter
     protected int defence;
     protected int speed;
     protected int attack;
+    private HealthBar bar;
 
-    public Character(int maximumHitpoints, 
-        int defence, 
-        int speed, 
+    public Character(int maximumHitpoints,
+        int defence,
+        int speed,
         string name,
         int attack)
     {
-        this.maximumLifepoints 
-            = this.currentLifepoints 
+        this.maximumLifepoints
+            = this.currentLifepoints
             = maximumHitpoints;
         this.name = name;
         if (defence <= 50)  //max defence is 50
@@ -31,6 +32,7 @@ public class Character : ICharacter
         }
         this.speed = speed;
         this.attack = attack;
+        this.bar = new HealthBar(this);
     }
 
     public string getName()
@@ -74,18 +76,20 @@ public class Character : ICharacter
 
     public int decrementlifepoints(int hitpoints)
     {
-        this.currentLifepoints = this.currentLifepoints - ((int)(hitpoints * this.defence / 100) + 1);
-        return this.currentLifepoints;
+        int decrementValue = ((int)(hitpoints * (1 - this.defence / 100)) + 1);
+        this.currentLifepoints = this.currentLifepoints - decrementValue;
+        this.bar.handleBar();
+        return decrementValue;
     }
-   
+
     public bool isAlive()
     {
         return this.maximumLifepoints - this.currentLifepoints > 0;
     }
 
-   public int getAttackValue(ATTACKS.attacks attack)
+    public int getAttackValue(ATTACKS.attacks attack)
     {
-        switch(attack)
+        switch (attack)
         {
             case ATTACKS.attacks.WAVE_PUNCH:
                 return ATTACKS.WAVE_PUNCH_DMG + this.attack;
@@ -93,15 +97,17 @@ public class Character : ICharacter
                 return ATTACKS.SHOCK_WAVE_DMG + this.attack;
             case ATTACKS.attacks.KICK:
                 return ATTACKS.KICK_DMG + this.attack;
+
             case ATTACKS.attacks.PUNCH:
                 return ATTACKS.PUNCH_DMG + this.attack;
             default:
                 return 0;
         }
-    } 
+    }
 
     public void collidedWithElementOfDeath()
     {
         this.currentLifepoints = 0;
     }
 }
+*/
