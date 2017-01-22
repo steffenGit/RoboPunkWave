@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlatformShaker : MonoBehaviour
 {
+    List<Collision> objectsOnCollider;
+
     Rigidbody rb;
     Transform tf;
 
-    public float speed = 0.0f;
+    public float duration = 0.0f;
+    public float speed = 0.5f;
     public float switchDirectionAfterTime = 50.0f;
     public float range = 5;
 
     // Use this for initialization
     void Start()
     {
+        objectsOnCollider = new List<Collision>();
         tf = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
     }
@@ -21,24 +25,32 @@ public class PlatformShaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        /*if (Input.GetKeyDown("space"))
         {
-            speed = 0.5f;
-        }
+            duration = 0.5f;
+        }*/
 
-        if (speed > 0.0f)
+        if (duration > 0.0f)
         {
             Vector3 currPos = tf.position;
             float t = Mathf.PingPong(Time.time * switchDirectionAfterTime, range) / range;
             transform.Translate(new Vector3(0, (0.5f - t) * speed, 0));
-            speed -= 0.01f;
+            duration -= 0.01f;
         }
 
     }
 
-    /*void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision!");
-        shaking = 4.0f;
-    }*/
+        objectsOnCollider.Add(collision);
+        duration = 0.3f;
+
+        foreach (Collision coll in objectsOnCollider)
+        {
+            if (coll.gameObject.tag == "OtherPlayer") // TODO set other player to the real tag
+            {
+                // TODO apply damage to the other player
+            }
+        }
+    }
 }
