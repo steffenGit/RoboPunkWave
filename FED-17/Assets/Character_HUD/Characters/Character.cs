@@ -76,7 +76,7 @@ public class Character : ICharacter
 
     public int decrementlifepoints(int hitpoints)
     {
-        int decrementValue = ((int)(hitpoints * this.defence / 100) + 1);
+        int decrementValue = ((int)(hitpoints * (1 - this.defence / 100)) + 1);
         this.currentLifepoints = this.currentLifepoints - decrementValue;
         this.bar.handleBar();
         return decrementValue;
@@ -97,6 +97,7 @@ public class Character : ICharacter
                 return ATTACKS.SHOCK_WAVE_DMG + this.attack;
             case ATTACKS.attacks.KICK:
                 return ATTACKS.KICK_DMG + this.attack;
+
             case ATTACKS.attacks.PUNCH:
                 return ATTACKS.PUNCH_DMG + this.attack;
             default:
