@@ -527,7 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e55598e9ada36459427d8c71a61657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  duration: 0
+  speed: 0.5
   switchDirectionAfterTime: 50
   range: 5
 --- !u!65 &349396729
@@ -542,34 +543,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &462382324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 169287543}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 462382325}
-  m_Layer: 0
-  m_Name: Missing Prefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &462382325
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 169287543}
-  m_GameObject: {fileID: 462382324}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &616550624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e55598e9ada36459427d8c71a61657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  duration: 0
+  speed: 0.5
   switchDirectionAfterTime: 50
   range: 5
 --- !u!65 &1427091969
@@ -1224,7 +1198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e55598e9ada36459427d8c71a61657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  duration: 0
+  speed: 0.5
   switchDirectionAfterTime: 50
   range: 5
 --- !u!65 &1445107138
@@ -1348,7 +1323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e55598e9ada36459427d8c71a61657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  duration: 0
+  speed: 0.5
   switchDirectionAfterTime: 50
   range: 5
 --- !u!65 &1470280240
@@ -1918,7 +1894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e55598e9ada36459427d8c71a61657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  duration: 0
+  speed: 0.5
   switchDirectionAfterTime: 50
   range: 5
 --- !u!65 &2079901519

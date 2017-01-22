@@ -13,44 +13,57 @@ public class PlatformShaker : MonoBehaviour
     public float speed = 0.5f;
     public float switchDirectionAfterTime = 50.0f;
     public float range = 5;
-
-    // Use this for initialization
+    
     void Start()
     {
         objectsOnCollider = new List<Collision>();
         tf = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        /*if (Input.GetKeyDown("space"))
-        {
-            duration = 0.5f;
-        }*/
-
         if (duration > 0.0f)
         {
             Vector3 currPos = tf.position;
             float t = Mathf.PingPong(Time.time * switchDirectionAfterTime, range) / range;
             transform.Translate(new Vector3(0, (0.5f - t) * speed, 0));
-            duration -= 0.01f;
+            duration -= Time.deltaTime;
         }
-
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        // Save the object that entered the platform
         objectsOnCollider.Add(collision);
-        duration = 0.3f;
+        duration = 0.6f;
+        
+        /**
+         * 
+         * TODO trigger the code below when the player that enters collision attacks with a SHOCKWAVE
+         * 
+         */
 
-        foreach (Collision coll in objectsOnCollider)
+        // Apply damage to all other players that are currently on the platform
+        if(collision.gameObject.GetComponent<PlayControllerScript>() != null)
         {
-            if (coll.gameObject.tag == "OtherPlayer") // TODO set other player to the real tag
+            int idOfAttackingPlayer = collision.gameObject.GetComponent<PlayControllerScript>().playerId;
+            foreach (Collision coll in objectsOnCollider)
             {
-                // TODO apply damage to the other player
+                int idOfOther = coll.gameObject.GetComponent<PlayControllerScript>().playerId;
+                if (idOfOther != idOfAttackingPlayer)
+                {
+                    coll.gameObject.GetComponent<PlayControllerScript>().DamageTriggerCallback( // Apply damage to the player that was hit
+                        ATTACKS.SHOCK_WAVE_DMG,                                                 // The attack type
+                        collision.gameObject.GetComponent<Collider2D>());                       // The player that made the attack
+                }
             }
         }
+    }
+
+    void onCollisionExit(Collision collision)
+    {
+        // Remove the object that left the platform
+        objectsOnCollider.Remove(collision);
     }
 }
