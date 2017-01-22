@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : ICharacter
+/*public class Character : ICharacter
 {
     protected int maximumLifepoints;
     protected int currentLifepoints;
@@ -110,3 +110,4 @@ public class Character : ICharacter
         this.currentLifepoints = 0;
     }
 }
+*/
